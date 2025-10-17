@@ -1,7 +1,7 @@
 import React from 'react';
 
 const RibbonControls = ({
-  handlePaste,
+   handlePaste,
   handleCopy,
   handleCut,
   handleBackgroundColorChange,
@@ -12,6 +12,8 @@ const RibbonControls = ({
   handleFontSizeChange,
   handleTextTransform,
   handleFontFamilyChange,
+  handleAddColumn,
+  handleAddRow,
 }) => {
   return (
     <div className="excel-ribbon">
@@ -30,6 +32,16 @@ const RibbonControls = ({
             <button className="ribbon-button" onClick={handleCut}>
               <span role="img" aria-label="cut" style={{ fontSize: '22px' }}>✂️</span>
               <span>Cut</span>
+            </button>
+          </div>
+           <div className="ribbon-button-group">
+            <button className="ribbon-button" onClick={() => handleAddRow()}>
+              <span role="img" aria-label="add row" style={{ fontSize: '22px' }}>➕</span>
+              <span>Add Row</span>
+            </button>
+            <button className="ribbon-button" onClick={() => handleAddColumn()}>
+              <span role="img" aria-label="add column" style={{ fontSize: '22px' }}>➕</span>
+              <span>Add Column</span>
             </button>
           </div>
           <span className="group-label">Clipboard</span>
