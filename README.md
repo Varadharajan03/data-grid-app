@@ -1,56 +1,41 @@
-```markdown
-# Excel-like DataGrid Application
+# 📊 Excel-like DataGrid Application
 
-A React-based spreadsheet mimicking Excel with formulas, formatting, drag-to-fill, and more.
+A **React-based spreadsheet** mimicking Microsoft Excel with formulas, formatting, drag-to-fill, and more — built for the **Animaker Frontend Developer Assessment**.
+
+---
 
 ## 🚀 Features
-- **Editable Cells**: Click to edit, Enter/blur to save, Esc to cancel
-- **Dynamic Grid**: 100 rows × 26+ columns (A-Z, AA-AB...)
-- **Add Rows/Columns**: Ribbon buttons or hover "+" on headers/labels
-- **Drag Selection**: Click and drag for rectangular ranges
-- **Copy/Cut/Paste**: Ctrl+C, Ctrl+X, Ctrl+V (supports external data)
-- **Formula Support**: Arithmetic (`=A1+B1`), functions (`SUM`, `AVERAGE`, `COUNT`, `MIN`, `MAX`), cell references (`=A1`, `=B2:B10`)
-- **Fill Handle**: Drag to fill cells
-- **Undo/Redo**: Ctrl+Z, Ctrl+Y
-- **Keyboard Navigation**: Arrow keys, Enter, Tab
-- **Column/Row Reordering**: Drag headers/labels
-- **Resizable Columns/Rows**: Drag edges
-- **Formatting**: Bold (Ctrl+B), Italic (Ctrl+I), Underline (Ctrl+U), font size (10-20px), font family (Arial, Times New Roman, etc.), text transform, color pickers
-- **Excel-like Theme**: Red headers (#ff6b6b), green row labels (#51cf66), white cells (#ffffff), blue selection (#e7f3ff)
 
-## 📦 Installation
-1. Clone: `git clone <repo-url> && cd datagrid-app`
-2. Install: `npm install` or `yarn install`
-3. Start: `npm run dev` or `yarn dev`
-4. Open: `http://localhost:5173`
+- **Editable Cells** — Click to edit, Enter/blur to save, Esc to cancel  
+- **Dynamic Grid** — 100 rows × 26+ columns (A-Z, AA-AB...)  
+- **Add Rows/Columns** — Ribbon buttons or hover "+" on headers/labels  
+- **Drag Selection** — Click and drag to select rectangular ranges  
+- **Copy/Cut/Paste** — Ctrl+C, Ctrl+X, Ctrl+V (supports external data)  
+- **Formula Support** — Arithmetic (`=A1+B1`), functions (`SUM`, `AVERAGE`, `COUNT`, `MIN`, `MAX`), and cell references (`=A1`, `=B2:B10`)  
+- **Fill Handle** — Drag to fill series or patterns  
+- **Undo/Redo** — Ctrl+Z, Ctrl+Y  
+- **Keyboard Navigation** — Arrow keys, Enter, Tab  
+- **Column/Row Reordering** — Drag headers/labels  
+- **Resizable Columns/Rows** — Drag edges  
+- **Formatting Options** —  
+  - Bold (Ctrl+B), Italic (Ctrl+I), Underline (Ctrl+U)  
+  - Font size (10–20px), font family (Arial, Times New Roman, etc.)  
+  - Text transform, text & background color pickers  
+- **Excel-like Theme** —  
+  - Red headers (#ff6b6b)  
+  - Green row labels (#51cf66)  
+  - White cells (#ffffff)  
+  - Blue selection (#e7f3ff)
 
-## 🏗️ Project Structure
-```
-src/
-├── components/
-│   ├── DataGrid.jsx
-│   ├── Cell.jsx
-│   ├── RibbonControls.jsx
-│   ├── FormulaBar.jsx
-│   └── SpreadsheetTable.jsx
-├── hooks/
-│   ├── useSpreadsheetData.js
-│   ├── useSpreadsheetActions.js
-│   ├── useSpreadsheetFormatting.js
-│   └── useSpreadsheetEvents.js
-├── utils/
-│   └── formulaParser.js
-├── styles/
-│   └── style.css
-└── App.js
-```
 
 ## 🎯 Data Model
-- **Headers**: `['A', 'B', ..., 'Z', 'AA', ...]`
-- **Data**: 2D array `data[row][col]`
-- **Cell Styles**: 2D array for formatting
-- **Column Widths/Row Heights**: Pixel value arrays
-- **Example**:
+
+- **Headers:** `['A', 'B', ..., 'Z', 'AA', ...]`  
+- **Data:** 2D array `data[row][col]`  
+- **Cell Styles:** 2D array for formatting  
+- **Column Widths/Row Heights:** Arrays of pixel values  
+
+### Example:
 ```javascript
 data = [
   ['Name', 'Age', 'Bonus', 'Total'],
@@ -61,68 +46,109 @@ data = [
 ]
 ```
 
+---
+
 ## 🎨 Styling
-- Headers: #ff6b6b
-- Labels: #51cf66
-- Cells: #ffffff
-- Selection: #e7f3ff
-- Borders: #d1d1d1
+
+| Element | Color | Description |
+|----------|--------|-------------|
+| Header   | `#ff6b6b` | Column headers |
+| Row Labels | `#51cf66` | Row numbers |
+| Cells | `#ffffff` | Default background |
+| Selection | `#e7f3ff` | Active cell/range highlight |
+| Borders | `#d1d1d1` | Grid borders |
+
+---
 
 ## ⌨️ Keyboard Shortcuts
-- Ctrl+C/X/V: Copy/Cut/Paste
-- Ctrl+Z/Y: Undo/Redo
-- Ctrl+B/I/U: Bold/Italic/Underline
-- Arrow Keys: Navigate
-- Enter: Edit
-- Delete/Backspace: Clear
-- Shift+Arrows: Extend selection
+
+| Shortcut | Action |
+|-----------|--------|
+| Ctrl + C / X / V | Copy / Cut / Paste |
+| Ctrl + Z / Y | Undo / Redo |
+| Ctrl + B / I / U | Bold / Italic / Underline |
+| Arrow Keys | Navigate cells |
+| Enter | Edit or confirm edit |
+| Delete / Backspace | Clear cell |
+| Shift + Arrows | Extend selection |
+
+---
 
 ## 🖱️ Mouse Actions
-- Click: Select cell
-- Click+Drag: Select range
-- Double-click: Edit
-- Shift+Click: Extend selection
-- Drag fill handle: Fill pattern
-- Drag header/label: Reorder
-- Drag edge: Resize
-- Hover header/label: Show "+" to insert
+
+- **Click:** Select cell  
+- **Click + Drag:** Select range  
+- **Double-click:** Edit cell  
+- **Shift + Click:** Extend selection  
+- **Drag Fill Handle:** Auto-fill  
+- **Drag Header/Label:** Reorder columns/rows  
+- **Drag Edge:** Resize column/row  
+- **Hover Header/Label:** Show “+” to insert new column/row  
+
+---
 
 ## 🧪 Test Cases
-- Edit cell, save
-- Add row/column
-- Select, copy, cut, paste
-- Formula evaluation (`=A1+B1`, `=SUM(A1:A10)`)
-- Fill handle, undo/redo
-- Reorder/resize columns/rows
-- Paste external data
-- Keyboard navigation, formatting
+
+| Test | Expected Result |
+|------|-----------------|
+| Edit a cell | Value updates correctly |
+| Add row/column | Appears instantly with default values |
+| Copy/Cut/Paste | Works internally and with external data |
+| Formula `=A1+B1` | Computes correctly |
+| Formula `=SUM(A1:A10)` | Computes range sum |
+| Fill handle | Fills pattern |
+| Undo/Redo | Reverts/restores actions |
+| Resize columns/rows | Updates layout |
+| Keyboard navigation | Works smoothly |
+| Formatting | Updates cell styles |
+
+---
+
+## 📦 Installation & Setup
+
+```bash
+# Clone the repository
+git clone <repo-url> && cd datagrid-app
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Open in browser
+http://localhost:5173
+
+# Deployed URL
+
+https://data-grid-app-nqc1.vercel.app/
+```
+
+---
 
 ## 🚀 Deployment
-1. Install Vercel CLI: `npm install -g vercel`
-2. Deploy: `vercel`
-3. Or use GitHub integration in Vercel dashboard
+
+1. **Install Vercel CLI**
+   ```bash
+   npm install -g vercel
+   ```
+
+2. **Deploy**
+   ```bash
+   vercel 
+   ```
 
 ## 🛠️ Technical Details
-- **Built With**: React 18, Vite, Hooks (useState, useCallback, useMemo, useRef, useEffect)
-- **Optimizations**: React.memo, useMemo, useCallback, minimal re-renders
-- **Compatibility**: Chrome, Firefox, Safari, Edge
 
-## 🤝 Contributing
-1. Fork repo
-2. Create branch: `git checkout -b feature/AmazingFeature`
-3. Commit: `git commit -m 'Add AmazingFeature'`
-4. Push: `git push origin feature/AmazingFeature`
-5. Open Pull Request
+- **Framework:** React 18  
+- **Bundler:** Vite  
+- **State Management:** React Hooks (`useState`, `useCallback`, `useMemo`, `useRef`, `useEffect`)  
+- **Optimizations:**  
+  - `React.memo` to prevent unnecessary re-renders  
+  - `useMemo` / `useCallback` for performance  
+- **Compatibility:** Chrome, Firefox, Safari, Edge  
+- **Restrictions:** No third-party UI or utility libraries allowed
 
-## 📝 Future Enhancements
-- Cell merging
-- Freeze panes
-- Advanced formulas (IF, VLOOKUP)
-- Charts/graphs
-- Export/Import CSV/Excel
-- Multi-sheet support
-- Cell validation
-- Context menu
-- Search/replace
-- Conditional formatting
+---
+
 
