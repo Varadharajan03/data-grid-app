@@ -1,0 +1,433 @@
+/* Excel DataGrid Styles - Excel-like Theme */
+
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.excel-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f3f3f3; /* Excel's light gray background */
+  font-family: 'Calibri', 'Segoe UI', Arial, sans-serif; /* Excel's default font */
+  overflow: hidden;
+}
+
+/* Ribbon Styles */
+.excel-ribbon {
+  background: #fff;
+  border-bottom: 1px solid #d1d1d1;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ribbon-controls {
+  display: flex;
+  gap: 16px;
+}
+
+.ribbon-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0 12px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.ribbon-group:last-child {
+  border-right: none;
+}
+
+.ribbon-button-group {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.ribbon-sub-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.ribbon-sub-buttons input[type="color"] {
+  width: 24px;
+  height: 24px;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.ribbon-sub-buttons select {
+  padding: 4px;
+  font-size: 12px;
+  border: 1px solid #d1d1d1;
+  border-radius: 3px;
+  background: #fff;
+  cursor: pointer;
+  color: #000 !important;
+  max-width: 100px; /* Prevent dropdowns from becoming too wide */
+}
+
+.ribbon-sub-buttons select:focus {
+  outline: none;
+  border-color: #0078d4; /* Excel's blue focus color */
+}
+
+.ribbon-sub-buttons span {
+  font-size: 11px;
+  color: #333;
+  text-align: center;
+}
+
+.ribbon-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border: 1px solid transparent;
+  background: #f5f5f5; /* Excel-like button background */
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.15s ease;
+  gap: 4px;
+  color: #333;
+}
+
+.ribbon-button:hover {
+  background: #e6e6e6;
+  border-color: #c6c6c6;
+}
+
+.ribbon-button:active {
+  background: #d9d9d9;
+  border-color: #b3b3b3;
+}
+
+.ribbon-button span:first-child {
+  font-size: 16px;
+  font-weight: bold; /* For icons or text like B, I, U */
+}
+
+.group-label {
+  font-size: 11px;
+  color: #666;
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* Formula Bar */
+.formula-bar {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #d1d1d1;
+  padding: 6px 8px;
+  gap: 8px;
+}
+
+.cell-name-box {
+  padding: 4px 12px;
+  border: 1px solid #d1d1d1;
+  border-radius: 3px;
+  min-width: 80px;
+  font-size: 13px;
+  background: #f9f9f9;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+}
+
+.formula-input-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  border: 1px solid #d1d1d1;
+  border-radius: 3px;
+  background: #fff;
+  padding: 0 8px;
+}
+
+.fx-icon {
+  font-style: italic;
+  font-weight: bold;
+  color: #555;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.formula-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 6px 4px;
+  font-size: 13px;
+  font-family: 'Calibri', 'Consolas', monospace;
+  background: transparent;
+  color: #333;
+}
+
+.formula-input:focus {
+  outline: none;
+}
+
+/* Table Wrapper */
+.table-wrapper {
+  flex: 1;
+  overflow: auto;
+  background: #fff;
+}
+
+/* Table */
+.table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #fff;
+  user-select: none;
+}
+
+/* Header Cells */
+.corner-cell {
+  background: #e6e6e6; /* Excel's header gray */
+  border: 1px solid #b3b3b3;
+  border-top: none;
+  border-left: none;
+  width: 50px;
+  min-width: 50px;
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 3;
+}
+
+.header-cell {
+  background: #e6e6e6;
+  border: 1px solid #b3b3b3;
+  border-top: none;
+  padding: 6px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: #333;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  cursor: grab;
+}
+
+.header-cell.drag-over {
+  background: #d0d0d0;
+}
+
+.label-cell {
+  background: #e6e6e6;
+  border: 1px solid #b3b3b3;
+  border-left: none;
+  padding: 6px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: #333;
+  width: 50px;
+  min-width: 50px;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  cursor: grab;
+}
+
+.label-cell.drag-over {
+  background: #d0d0d0;
+}
+
+/* Body Cells */
+.body-cell {
+  border: 1px solid #d1d1d1;
+  padding: 4px 8px;
+  font-size: 13px;
+  cursor: cell;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: #fff;
+  color: #333;
+  min-width: 120px;
+}
+
+.body-cell input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  padding: 4px 8px;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+}
+
+.body-cell.selected {
+  background: #e7f3ff; /* Excel's selection blue */
+  border: 1px solid #0078d4;
+  z-index: 1;
+}
+
+.body-cell.primary-selection {
+  border: 2px solid #0078d4;
+  box-shadow: inset 0 0 0 1px #fff;
+  background: #e7f3ff;
+}
+
+.body-cell.filling {
+  background: #cce5ff;
+  border: 1px dashed #0078d4;
+}
+
+/* Fill Handle */
+.fill-handle {
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  width: 8px;
+  height: 8px;
+  background: #0078d4;
+  border: 1px solid #fff;
+  cursor: crosshair;
+  z-index: 5;
+}
+
+.fill-handle:hover {
+  background: #005a9e;
+  transform: scale(1.2);
+}
+
+/* Resize Handles */
+.col-resize-handle {
+  position: absolute;
+  right: -3px;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  cursor: col-resize;
+  z-index: 10;
+}
+
+.col-resize-handle:hover {
+  background: rgba(0, 120, 212, 0.3);
+}
+
+.row-resize-handle {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  cursor: row-resize;
+  z-index: 10;
+}
+
+.row-resize-handle:hover {
+  background: rgba(0, 120, 212, 0.3);
+}
+
+/* Status Bar */
+.status-bar {
+  background: #fff;
+  border-top: 1px solid #d1d1d1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.sheet-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.sheet-tab {
+  padding: 4px 16px;
+  background: #f0f0f0;
+  border: 1px solid #d1d1d1;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.sheet-tab.active {
+  background: #fff;
+  font-weight: 600;
+  border-bottom: 2px solid #0078d4;
+}
+
+.status-info {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Scrollbar Styling */
+.table-wrapper::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: #f3f3f3;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #b3b3b3;
+  border-radius: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .ribbon-button span:not(:first-child) {
+    display: none; /* Hide text labels, keep icons */
+  }
+
+  .ribbon-button {
+    padding: 6px;
+  }
+
+  .ribbon-sub-buttons select {
+    max-width: 80px;
+    font-size: 11px;
+  }
+
+  .group-label {
+    font-size: 10px;
+  }
+
+  .cell-name-box {
+    min-width: 60px;
+    font-size: 12px;
+  }
+
+  .formula-input {
+    font-size: 12px;
+  }
+
+  .body-cell {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+}
